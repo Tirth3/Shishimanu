@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: OTTO
+Version: 0.1.0
+Summary: A simple Pygame demo
+Author-email: Your Name <you@example.com>
+License: MIT
+Description-Content-Type: text/markdown
+Requires-Dist: pygame
+
+## OTTO the virtual pet
+
+```bash
+pip install -e .
+otto
+```

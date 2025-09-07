@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OTTO"
+version = "0.1.0"
+description = "A simple Pygame demo"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = ["pygame"]
+
+[tool.setuptools.package-data]
+mygame = ["assets/**/*"]
+
+[project.scripts]
+otto = "OTTO.main:run_game"

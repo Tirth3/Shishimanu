@@ -1,0 +1,2 @@
+[console_scripts]
+otto = OTTO.main:run_game

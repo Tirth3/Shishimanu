@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/OTTO/Helper.py
+src/OTTO/__init__.py
+src/OTTO/main.py
+src/OTTO/pet.py
+src/OTTO.egg-info/PKG-INFO
+src/OTTO.egg-info/SOURCES.txt
+src/OTTO.egg-info/dependency_links.txt
+src/OTTO.egg-info/entry_points.txt
+src/OTTO.egg-info/requires.txt
+src/OTTO.egg-info/top_level.txt
