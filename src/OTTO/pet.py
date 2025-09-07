@@ -8,7 +8,7 @@ from OTTO.StateMachine import *
 class Pet():
     def __init__(self, x, y):
         self.pos = [x , y]
-        self.size = (200, 200)
+        self.size = (200 , 200)
 
         # Build animations
         idle_frames = [pygame.transform.scale(load_image(f"otter/idle/{i}.png"), self.size) for i in range(1, 13)]
@@ -70,7 +70,7 @@ class Pet():
         elif self.animations.current == "Sleeping":
             self.Status["Sleep"] += dt * 0.01
 
-        print(self.Status["Sleep"])
+        # print(self.Status["Sleep"])
 
         # update animation
         self.animations.update(dt)
