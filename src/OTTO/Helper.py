@@ -8,7 +8,7 @@ def load_image(name):
         return pygame.image.load(path)
 
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 1920, 1080
 
 
 def blitRotateCenter(surf, image, topleft, angle):
