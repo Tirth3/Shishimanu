@@ -15,14 +15,14 @@ from OTTO.Dialog import *
 """
 
 
-def FirstTimeRun(screen, bgcolor):
+def FirstTimeRun(screen, bgcolor, sSize):
     font = load_font("Fonts/Regular.ttf", 16)
     # text = font.render('OTTER', False, (255 , 255 , 255))
 
     # Load spritesheet (with rows: idle, run, jump)
     spritesheet = Spritesheet("oldhero.png")
-    player = Player(200, 400, spritesheet, frame_width=128,
-                    frame_height=128, scale=3)
+    player = Player(200, 0, spritesheet, frame_width=128,
+                    frame_height=128, ssize=sSize, scale=3)
     all_sprites = pygame.sprite.Group(player)
 
     dialog_lines = [
@@ -166,7 +166,7 @@ def run_game():
     vPet = Pet(WIDTH // 2, HEIGHT // 2)
 
     if args.HBD:
-        FirstTimeRun(screen, BGCOLOR)
+        FirstTimeRun(screen, BGCOLOR, (WIDTH, HEIGHT))
     clock = pygame.time.Clock()
     running = True
     # Main loop

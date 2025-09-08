@@ -17,8 +17,9 @@ class Spritesheet:
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x, y, spritesheet, frame_width, frame_height, scale=2):
+    def __init__(self, x, y, spritesheet, frame_width, frame_height, ssize, scale=2):
         super().__init__()
+        self.sSize = ssize
         self.spritesheet = spritesheet
         self.frame_width = frame_width
         self.frame_height = frame_height
@@ -101,8 +102,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += dy
 
         # Simple floor collision
-        if self.rect.bottom >= 600:  # Example "ground"
-            self.rect.bottom = 600
+        if self.rect.bottom >= self.sSize[1]:  # Example "ground"
+            self.rect.bottom = self.sSize[1]
             self.vel_y = 0
             self.on_ground = True
 
