@@ -2,7 +2,7 @@ import pygame
 
 
 class Dialog:
-    def __init__(self, dialog_list, font, box_rect, text_color=(255, 255, 255), box_color=(100, 100, 100)):
+    def __init__(self, dialog_list, font, box_rect, text_color=(255, 255, 255), box_color=(0, 0, 0)):
         """
         dialog_list: list of strings
         font: pygame.font.Font object

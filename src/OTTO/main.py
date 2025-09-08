@@ -34,7 +34,7 @@ def FirstTimeRun(screen, bgcolor):
 
         "Not machines of steel, nor treasures of circuitry,",
         "but a living companion, woven from both light and ancient code,",
-        "a faithful creature known as Shishimanu.",
+        "a faithful creature known as Shishimanu."
 
         "Shishimanu shall wander with you through the enchanted valleys of your realm of screen,",
         "amid the forests, rivers, and mountains of Mahur,",
@@ -43,12 +43,10 @@ def FirstTimeRun(screen, bgcolor):
         "And on this day, when the constellations themselves bend in honor of your birth,",
         "I proclaim with joy:",
 
-        "Happy Birthday, Princess of Mahur!",
-
+        "Happy Birthday, Princess of Mahur! "
         "May your path be ever bright, your heart ever joyful,",
-        "and may the bond between the science of Talajai and the magic of Mahur",
+        "and may the bond between the science of Talajai and the magic of Mahur...",
         "shine eternal across the stars and the mountains alike.",
-
         "✨ Thus is it spoken, thus is it bestowed. ✨"
     ]
 
@@ -86,6 +84,9 @@ def FirstTimeRun(screen, bgcolor):
 
         # Draw dialog
         dialog.draw(screen)
+
+        if dialog.active == False:
+            return
 
         pygame.display.flip()
 
@@ -194,4 +195,5 @@ def run_game():
         pygame.display.flip()
 
     pygame.quit()
+    sys.exit()
     sys.exit()
