@@ -2,10 +2,11 @@ import pygame
 
 from OTTO.Helper import *
 from OTTO.StateMachine import *
+from OTTO.Dialog import *
 
 
 class Pet():
-    def __init__(self, x, y):
+    def __init__(self, x, y, font):
         self.pos = [x, y]
         self.size = (200, 200)
 
@@ -41,6 +42,8 @@ class Pet():
             "Health": 100
         }
         self.speed = 100
+        self.dialog = Dialog(["Hello princess", "I am hungry....",
+                             "It would be fun if we played...", "Have you tried solving Leetcode today?"], font, pygame.Rect(100, 100, 300, 100), alwaysactive=True)
 
     def Update(self, dt):
         dt_sec = dt / 1000.0
@@ -72,13 +75,14 @@ class Pet():
 
             self.Status["Sleep"] -= dt * 0.01
 
-        elif self.animations.current == "Sleeping":
+        elif self.animations.current == "Sleeping" and self.Status["Sleep"] <= 90:
             self.Status["Sleep"] += dt * 0.01
             self.State_timer = 0
-            self.pos[0] += dx
-            self.pos[1] += dy
+            # print(self.Status["Sleep"])
 
-        # print(self.Status["Sleep"])
+        if self.Status["Sleep"] <= 0 or self.Status["Fun"] <= 0 or self.Status["Hunger"] <= 10:
+            self.Status["Health"] -= dt * 0.0001
+            print(self.Status["Health"])
 
         # update animation
         self.animations.update(dt)
@@ -91,3 +95,4 @@ class Pet():
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
         elif self.animations.current == "Idle":
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
+        self.dialog.draw(screen, (self.pos[0], self.pos[1] - 50))

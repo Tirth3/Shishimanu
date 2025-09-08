@@ -13,20 +13,19 @@ from OTTO.Dialog import *
     TODO 2 : Add platform check for linux , macos and windows (DONE)
     TODO 3 : Added dialogs and storyline (DoONE)
 
-    TODO 4 : Add various status like hunger , sleep , fun and sickness to the virtual pet
+    TODO 4 : Add various status like hunger , sleep , fun and health to the virtual pet
     TODO 5 : Make virtual pet move across screen randomly according to the statuses
     TODO 6 : Add various interactions with the virtual pet
 """
 
 
-def FirstTimeRun(screen, bgcolor, sSize):
-    font = load_font("Fonts/Bold.ttf", 24)
+def FirstTimeRun(screen, bgcolor, sSize, font):
     # text = font.render('OTTER', False, (255 , 255 , 255))
 
     # Load spritesheet (with rows: idle, run, jump)
     spritesheet = Spritesheet("oldhero.png")
     player = Player(200, 0, spritesheet, frame_width=128,
-                    frame_height=128, ssize=sSize, scale=3)
+                    frame_height=128, ssize=sSize, scale=2)
     all_sprites = pygame.sprite.Group(player)
 
     dialog_lines = [
@@ -54,7 +53,7 @@ def FirstTimeRun(screen, bgcolor, sSize):
         "✨ Thus is it spoken, thus is it bestowed. ✨"
     ]
 
-    dialog = Dialog(dialog_lines, font, pygame.Rect(50, 200, 600, 120))
+    dialog = Dialog(dialog_lines, font, pygame.Rect(50, 200, 300, 130))
 
     clock = pygame.time.Clock()
     running = True
@@ -84,10 +83,10 @@ def FirstTimeRun(screen, bgcolor, sSize):
         all_sprites.draw(screen)
 
         # Handle dialog input
-        dialog.handle_input(keys)
+        dialog.handle_input(keys[pygame.K_SPACE])
 
         # Draw dialog
-        dialog.draw(screen)
+        dialog.draw(screen, (player.rect.x, player.rect.y))
 
         if dialog.active == False:
             return
@@ -106,10 +105,10 @@ def run_game():
                         help="Movement speed of the pet")
     parser.add_argument("--fullscreen", action="store_true",
                         help="Run in fullscreen mode")
-    parser.add_argument("--wsize", type=int, default=800,
+    parser.add_argument("--wsize", type=int, default=600,
                         help="Enter the size of the window (default = 800) ")
-    parser.add_argument("--wpos", type=int, default=200,
-                        help="Enter the position of the window on the screen (default =(800 , 800)) ")
+    parser.add_argument("--wpos", type=int, default=[100, 100], nargs=2, metavar=['X', 'Y'],
+                        help="Enter the position of the window on the screen (default = (100 , 100) ")
     args = parser.parse_args()
 
     platform = sys.platform
@@ -122,7 +121,7 @@ def run_game():
         return
 
     DEFAULT_WIDTH = DEFAULT_HEIGHT = args.wsize
-    os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (args.wpos, args.wpos)
+    os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (args.wpos[0], args.wpos[1])
     # Initialize
     pygame.init()
     # Window settings
@@ -150,7 +149,7 @@ def run_game():
             win32gui.SetLayeredWindowAttributes(
                 hwnd, win32api.RGB(*BGCOLOR), 0, win32con.LWA_COLORKEY)
         else:
-            BG = (0, 0, 0)
+            BGCOLOR = (0, 0, 0)
         print("Default")
 
     elif args.t == 1:
@@ -170,10 +169,11 @@ def run_game():
             hwnd, win32api.RGB(*BGCOLOR), 0, win32con.LWA_COLORKEY)
         print("Transparent BG")
 
-    vPet = Pet(WIDTH // 2, HEIGHT // 2)
+    font = load_font("Fonts/Bold.ttf", 16)
+    vPet = Pet(WIDTH // 2, HEIGHT // 2, font)
 
     if args.HBD:
-        FirstTimeRun(screen, BGCOLOR, (WIDTH, HEIGHT))
+        FirstTimeRun(screen, BGCOLOR, (WIDTH, HEIGHT), font)
     clock = pygame.time.Clock()
     running = True
     # Main loop
@@ -181,6 +181,7 @@ def run_game():
         dt = clock.tick(60)
         screen.fill(BGCOLOR)  # fully transparent background
 
+        keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -192,10 +193,12 @@ def run_game():
                 if event.button == 1:
                     pos = pygame.mouse.get_pos()
                     # pyright: ignore[reportAttributeAccessIssue]
-                    vPet.target_pos = ( pos[0] - vPet.size[0] // 2, pos[1] - vPet.size[1] // 2)
+                    vPet.target_pos = (
+                        pos[0] - vPet.size[0] // 2, pos[1] - vPet.size[1] // 2)
                     vPet.animations.set_state("Moving")
 
         vPet.Update(dt)
+        vPet.dialog.handle_input(keys[pygame.K_SPACE])
         vPet.Draw(screen)
 
         pygame.display.flip()
