@@ -9,14 +9,18 @@ from OTTO.Player import *
 from OTTO.Dialog import *
 
 """
-    TODO 1 : Add command line arguement(DONE) , for first opening and transparent background
+    TODO 1 : Add command line arguement(DONE) , for first opening and transparent background (DONE)
     TODO 2 : Add platform check for linux , macos and windows (DONE)
-    TODO 3 : Added dialogs and storyline
+    TODO 3 : Added dialogs and storyline (DoONE)
+
+    TODO 4 : Add various status like hunger , sleep , fun and sickness to the virtual pet
+    TODO 5 : Make virtual pet move across screen randomly according to the statuses
+    TODO 6 : Add various interactions with the virtual pet
 """
 
 
 def FirstTimeRun(screen, bgcolor, sSize):
-    font = load_font("Fonts/Regular.ttf", 16)
+    font = load_font("Fonts/Bold.ttf", 24)
     # text = font.render('OTTER', False, (255 , 255 , 255))
 
     # Load spritesheet (with rows: idle, run, jump)
@@ -50,7 +54,7 @@ def FirstTimeRun(screen, bgcolor, sSize):
         "✨ Thus is it spoken, thus is it bestowed. ✨"
     ]
 
-    dialog = Dialog(dialog_lines, font, pygame.Rect(50, 200, 500, 100))
+    dialog = Dialog(dialog_lines, font, pygame.Rect(50, 200, 600, 120))
 
     clock = pygame.time.Clock()
     running = True
@@ -104,7 +108,7 @@ def run_game():
                         help="Run in fullscreen mode")
     parser.add_argument("--wsize", type=int, default=800,
                         help="Enter the size of the window (default = 800) ")
-    parser.add_argument("--wpos", type=int, default=800,
+    parser.add_argument("--wpos", type=int, default=200,
                         help="Enter the position of the window on the screen (default =(800 , 800)) ")
     args = parser.parse_args()
 
@@ -154,6 +158,9 @@ def run_game():
         print("Black")
 
     elif args.t == 2:
+        import win32api
+        import win32con
+        import win32gui
         # Create layered window
         hwnd = pygame.display.get_wm_info()["window"]
         win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
@@ -185,8 +192,7 @@ def run_game():
                 if event.button == 1:
                     pos = pygame.mouse.get_pos()
                     # pyright: ignore[reportAttributeAccessIssue]
-                    vPet.target_pos = (
-                        pos[0] - vPet.size[0] // 2, pos[1] - vPet.size[1] // 2)
+                    vPet.target_pos = ( pos[0] - vPet.size[0] // 2, pos[1] - vPet.size[1] // 2)
                     vPet.animations.set_state("Moving")
 
         vPet.Update(dt)
