@@ -102,8 +102,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += dy
 
         # Simple floor collision
-        if self.rect.bottom >= self.sSize[1]:  # Example "ground"
-            self.rect.bottom = self.sSize[1]
+        if self.rect.bottom >= self.sSize[1] * 0.8666:  # Example "ground"
+            self.rect.bottom = self.sSize[1] * 0.8666
             self.vel_y = 0
             self.on_ground = True
 

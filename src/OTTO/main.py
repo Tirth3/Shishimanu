@@ -54,6 +54,14 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
     ]
 
     dialog = Dialog(dialog_lines, font, pygame.Rect(50, 200, 300, 130))
+    bg_layer1 = load_image("background/background_layer_1.png")
+    bg_layer1 = pygame.transform.scale(bg_layer1, sSize)
+
+    # bg_layer2 = load_image("background/background_layer_2.png")
+    # bg_layer2 = pygame.transform.scale(bg_layer2, sSize)
+
+    bg_layer3 = load_image("background/background_layer_3.png")
+    bg_layer3 = pygame.transform.scale(bg_layer3, sSize)
 
     clock = pygame.time.Clock()
     running = True
@@ -78,6 +86,10 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
                     print("MIDDLE CLICK")
                 if event.button == 3:
                     print("RIGHT CLICK")
+
+        screen.blit(bg_layer1, (0, 0))
+        # screen.blit(bg_layer2, (0, 0))
+        screen.blit(bg_layer3, (0, 0))
 
         all_sprites.update(keys, dt / 1000)
         all_sprites.draw(screen)
@@ -127,10 +139,10 @@ def run_game():
     # Window settings
     if args.fullscreen:
         screen = pygame.display.set_mode(
-            (0, 0), pygame.FULLSCREEN)  # fullscreen
+            (DEFAULT_WIDTH, DEFAULT_HEIGHT), pygame.NOFRAME)  # no border
     else:
         screen = pygame.display.set_mode(
-            (DEFAULT_WIDTH, DEFAULT_HEIGHT), pygame.NOFRAME)  # no border
+            (0, 0), pygame.FULLSCREEN)  # fullscreen
     pygame.display.set_caption("VP")
 
     WIDTH, HEIGHT = screen.get_size()
