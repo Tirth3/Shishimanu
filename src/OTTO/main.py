@@ -210,7 +210,6 @@ def run_game():
                     vPet.animations.set_state("Moving")
 
         vPet.Update(dt)
-        vPet.dialog.handle_input(keys[pygame.K_SPACE])
         vPet.Draw(screen)
 
         pygame.display.flip()

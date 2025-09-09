@@ -42,8 +42,6 @@ class Pet():
             "Health": 100
         }
         self.speed = 100
-        self.dialog = Dialog(["Hello princess", "I am hungry....",
-                             "It would be fun if we played...", "Have you tried solving Leetcode today?"], font, pygame.Rect(100, 100, 300, 100), alwaysactive=True)
 
     def Update(self, dt):
         dt_sec = dt / 1000.0
@@ -95,4 +93,3 @@ class Pet():
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
         elif self.animations.current == "Idle":
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
-        self.dialog.draw(screen, (self.pos[0], self.pos[1] - 50))
