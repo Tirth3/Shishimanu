@@ -111,7 +111,7 @@ def run_game():
     parser = argparse.ArgumentParser(description="Run the OTTO virtual pet")
     parser.add_argument("--HBD", action="store_true",
                         help="for first time running the script")
-    parser.add_argument("--t", type=int, default=1,
+    parser.add_argument("--t", type=int, default=0,
                         help="Choose whether the BG is transparent or not (0 => let the program choose ; 1 => black ; 2 => transparent)")
     parser.add_argument("--speed", type=int, default=100,
                         help="Movement speed of the pet")
