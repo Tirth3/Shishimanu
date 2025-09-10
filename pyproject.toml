@@ -9,7 +9,7 @@ description = "A simple Pygame demo"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 readme = "README.md"
 license = { text = "MIT" }
-dependencies = ["pygame"]
+dependencies = ["pygame","pywin32; sys_platform == 'win32'"]
 
 [tool.setuptools.package-data]
 OTTO = ["assets/**/*"]

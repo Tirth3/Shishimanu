@@ -73,7 +73,7 @@ class Pet():
         if self.animations.current != "Moving":
             self.move_timer += dt_sec
 
-        print(f"{self.move_timer} , {self.animations.current}")
+        # print(f"{self.move_timer} , {self.animations.current}")
 
         if self.Status["Sleep"] <= 10 and self.animations.current == "Idle":
             self.animations.set_state("Sleeping")
