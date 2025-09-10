@@ -1,4 +1,5 @@
 import pygame
+import random
 
 from OTTO.Helper import *
 from OTTO.StateMachine import *
@@ -9,6 +10,7 @@ class Pet():
     def __init__(self, x, y, font):
         self.pos = [x, y]
         self.size = (200, 200)
+        self.sSize = (x * 2, y * 2)
 
         # Build animations
         idle_frames = [pygame.transform.scale(load_image(
@@ -17,6 +19,8 @@ class Pet():
             f"otter/run/{i}.png"), self.size) for i in range(1, 4)]
         sleep_frames = [pygame.transform.scale(load_image(
             f"otter/sleep/{i}.png"), self.size) for i in range(1, 7)]
+        spin_frames = [pygame.transform.scale(load_image(
+            f"otter/spin/{i}.png"), self.size) for i in range(1, 3)]
 
         # Create state machine
         self.animations = StateMachine()
@@ -26,6 +30,8 @@ class Pet():
             run_frames, frame_duration=80, loop=True))
         self.animations.add_state("Sleeping", AnimationState(
             sleep_frames, frame_duration=200, loop=True))
+        self.animations.add_state("Spin", AnimationState(
+            spin_frames, frame_duration=200, loop=True))
 
         self.animations.set_state("Idle")
 
@@ -38,21 +44,45 @@ class Pet():
         self.Status = {
             "Sleep": 100,
             "Fun": 100,
-            "Hunger": 100,
-            "Health": 100
         }
         self.speed = 100
 
+        self.move_timer = 0
+        self.move_time = 10
+
+        self.spin_timer = 0
+        self.spin_time = 100
+
     def Update(self, dt):
         dt_sec = dt / 1000.0
+
+        if self.animations.current == "Spin":
+            self.spin_timer += dt_sec
+        if self.spin_timer >= self.spin_time:
+            self.spin_timer = 0
+            self.animations.set_state("Idle")
+
+        if self.move_timer >= self.move_time:
+            self.move_timer = 0
+            tarpos = (random.randint(
+                0, self.sSize[0] - self.size[0]), random.randint(
+                0, self.sSize[1] - self.size[1]))
+            self.target_pos = tarpos[:]
+            self.animations.set_state("Moving")
+
+        if self.animations.current != "Moving":
+            self.move_timer += dt_sec
+
+        print(f"{self.move_timer} , {self.animations.current}")
 
         if self.Status["Sleep"] <= 10 and self.animations.current == "Idle":
             self.animations.set_state("Sleeping")
 
         if self.animations.current == "Idle":
-            self.Status["Sleep"] -= dt * 0.001
+            self.Status["Sleep"] -= dt_sec * 0.5
 
         elif self.animations.current == "Moving":
+            self.move_timer = 0
 
             dx = self.target_pos[0] - self.pos[0]
             dy = self.target_pos[1] - self.pos[1]
@@ -71,25 +101,28 @@ class Pet():
                 # Arrived
                 self.animations.set_state("Idle")
 
-            self.Status["Sleep"] -= dt * 0.01
+            self.Status["Sleep"] -= dt_sec * 0.75
 
         elif self.animations.current == "Sleeping" and self.Status["Sleep"] <= 90:
-            self.Status["Sleep"] += dt * 0.01
+            self.Status["Sleep"] += dt_sec
             self.State_timer = 0
-            # print(self.Status["Sleep"])
-
-        if self.Status["Sleep"] <= 0 or self.Status["Fun"] <= 0 or self.Status["Hunger"] <= 10:
-            self.Status["Health"] -= dt * 0.0001
-            print(self.Status["Health"])
+        # print(self.Status["Sleep"])
 
         # update animation
         self.animations.update(dt)
+
+    def Check_Mouse_Click(self, mouse_pos):
+        if (self.pos[0] <= mouse_pos[0] and self.pos[0] + self.size[0] >= mouse_pos[0]) and (self.pos[1] <= mouse_pos[1] and self.pos[1] + self.size[1] >= mouse_pos[1]):
+            return True
+        return False
 
     def Draw(self, screen):
         frame = self.animations.get_frame()
         if self.animations.current == "Moving":
             blitRotateCenter(screen, frame, self.pos, self.dir * 57.2958)
         elif self.animations.current == "Sleeping":
+            blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
+        elif self.animations.current == "Spin":
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)
         elif self.animations.current == "Idle":
             blitRotateCenter(screen, frame, self.pos, self.dir * 0.0)

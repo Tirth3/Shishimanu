@@ -32,8 +32,8 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
         "Hear now the words carried on starlight,",
         "from the shining towers of Talajai, the empire of crystal spires and boundless science…",
 
-        "I, the Emperor of Talajai, master of the engines of the cosmos and keeper of the radiant crown,",
-        "send forth a gift most rare to you, noble Princess of Mahur.",
+        "I, Tirthesh Mahajan, the Emperor of Talajai, master of the engines of the cosmos and keeper of the radiant crown,",
+        "send forth a gift most rare to you, Pratiksha Kumbhar, the noble Princess of Mahur.",
 
         "Not machines of steel, nor treasures of circuitry,",
         "but a living companion, woven from both light and ancient code,",
@@ -194,6 +194,7 @@ def run_game():
         screen.fill(BGCOLOR)  # fully transparent background
 
         keys = pygame.key.get_pressed()
+        mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -203,10 +204,13 @@ def run_game():
                     running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    pos = pygame.mouse.get_pos()
-                    # pyright: ignore[reportAttributeAccessIssue]
-                    vPet.target_pos = (
-                        pos[0] - vPet.size[0] // 2, pos[1] - vPet.size[1] // 2)
+                    if vPet.Check_Mouse_Click(mouse_pos):
+                        vPet.animations.set_state("Spin")
+
+                if event.button == 3:
+                    tarpos = (mouse_pos[0] - vPet.size[0] //
+                              2, mouse_pos[1] - vPet.size[1] // 2)
+                    vPet.target_pos = tarpos[:]
                     vPet.animations.set_state("Moving")
 
         vPet.Update(dt)
