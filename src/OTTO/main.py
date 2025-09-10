@@ -133,16 +133,20 @@ def run_game():
         return
 
     DEFAULT_WIDTH = DEFAULT_HEIGHT = args.wsize
-    os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (args.wpos[0], args.wpos[1])
     # Initialize
     pygame.init()
     # Window settings
     if args.fullscreen:
+        os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (
+            args.wpos[0], args.wpos[1])
         screen = pygame.display.set_mode(
             (DEFAULT_WIDTH, DEFAULT_HEIGHT), pygame.NOFRAME)  # no border
     else:
+        os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (0, -20)
+        display_info = pygame.display.Info()
+        desktop_size = (display_info.current_w, display_info.current_h)
         screen = pygame.display.set_mode(
-            (0, 0), pygame.FULLSCREEN)  # fullscreen
+            desktop_size, pygame.NOFRAME)  # fullscreen
     pygame.display.set_caption("VP")
 
     WIDTH, HEIGHT = screen.get_size()
@@ -219,5 +223,4 @@ def run_game():
         pygame.display.flip()
 
     pygame.quit()
-    sys.exit()
     sys.exit()
