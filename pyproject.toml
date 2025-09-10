@@ -12,7 +12,7 @@ license = { text = "MIT" }
 dependencies = ["pygame"]
 
 [tool.setuptools.package-data]
-otto = ["assets/**/*"]
+OTTO = ["assets/**/*"]
 
 [project.scripts]
 otto = "OTTO.main:run_game"
