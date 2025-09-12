@@ -15,6 +15,7 @@ shishimanu
 
 ## ⚙️ Command Line Options
 | Flags | Description|
+| ------------- |:-------------:|
 | --t   | Background mode (0 = auto, 1 = black, 2 = transparent [Windows only]). |
 | --speed | Sets pet movement speed (default = 100). |
 | --nofullscreen | Run in windowed mode (default = fullscreen). |
