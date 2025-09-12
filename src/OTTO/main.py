@@ -26,7 +26,7 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
     spritesheet = Spritesheet("oldhero.png")
     player = Player(200, 0, spritesheet, frame_width=128,
                     frame_height=128, ssize=sSize, scale=2)
-    all_sprites = pygame.sprite.Group(player)
+    all_sprites = pygame.sprite.Group(player) # pyright: ignore[reportArgumentType]
 
     dialog_lines = [
         "Hear now the words carried on starlight,",
@@ -119,7 +119,7 @@ def run_game():
                         help="Run in fullscreen mode")
     parser.add_argument("--wsize", type=int, default=600,
                         help="Enter the size of the window (default = 800) ")
-    parser.add_argument("--wpos", type=int, default=[100, 100], nargs=2, metavar=['X', 'Y'],
+    parser.add_argument("--wpos", type=int, default=[100, 100], nargs=2, metavar=['X', 'Y'], # pyright: ignore[reportArgumentType]
                         help="Enter the position of the window on the screen (default = (100 , 100) ")
     args = parser.parse_args()
 
