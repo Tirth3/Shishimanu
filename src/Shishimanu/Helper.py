@@ -4,12 +4,12 @@ import importlib.resources
 
 
 def load_image(name):
-    with importlib.resources.path("OTTO.assets", name) as path:
+    with importlib.resources.path("Shishimanu.assets", name) as path:
         return pygame.image.load(path)
 
 
 def load_font(name, size):
-    with importlib.resources.path("OTTO.assets", name) as path:
+    with importlib.resources.path("Shishimanu.assets", name) as path:
         return pygame.font.Font(path, size)
 
 

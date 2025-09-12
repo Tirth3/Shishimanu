@@ -1,6 +1,6 @@
 import pygame
 
-from OTTO.Helper import *
+from Shishimanu.Helper import *
 
 
 class Spritesheet:

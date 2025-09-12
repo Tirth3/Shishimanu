@@ -1,9 +1,9 @@
 import pygame
 import random
 
-from OTTO.Helper import *
-from OTTO.StateMachine import *
-from OTTO.Dialog import *
+from Shishimanu.Helper import *
+from Shishimanu.StateMachine import *
+from Shishimanu.Dialog import *
 
 
 class Pet():

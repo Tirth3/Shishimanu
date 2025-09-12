@@ -3,10 +3,10 @@ import sys
 import os
 import argparse
 
-from OTTO.pet import *
-from OTTO.Helper import *
-from OTTO.Player import *
-from OTTO.Dialog import *
+from Shishimanu.pet import *
+from Shishimanu.Helper import *
+from Shishimanu.Player import *
+from Shishimanu.Dialog import *
 
 """
     TODO 1 : Add command line arguement(DONE) , for first opening and transparent background (DONE)
@@ -108,7 +108,7 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
 
 def run_game():
     # command line arguements
-    parser = argparse.ArgumentParser(description="Run the OTTO virtual pet")
+    parser = argparse.ArgumentParser(description="Run the Shishimanu virtual pet")
     parser.add_argument("--HBD", action="store_true",
                         help="for first time running the script")
     parser.add_argument("--t", type=int, default=0,
