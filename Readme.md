@@ -1,4 +1,4 @@
-## 🐾 Shishimanu - virtual pet
+# 🐾 Shishimanu - virtual pet
 **Shishimanu is a Pygame-based virtual pet.**
 It’s a lightweight, interactive package where you can run a pet on your desktop, experiment with animations, and extend it into your own projects.
 
@@ -45,4 +45,4 @@ pyinstaller --onefile --noconsole -n shishimanu shishimanu/main.py
   pip install pywin32
   ```
 * Warning about Scripts folder not in path :
-  Follow the following guide.
+  * Follow the guide [here](https://github.com/Tirth3).
