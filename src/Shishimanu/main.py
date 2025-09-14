@@ -21,7 +21,6 @@ from Shishimanu.Dialog import *
 
 def FirstTimeRun(screen, bgcolor, sSize, font):
     # text = font.render('OTTER', False, (255 , 255 , 255))
-
     # Load spritesheet (with rows: idle, run, jump)
     spritesheet = Spritesheet("oldhero.png")
     player = Player(200, 0, spritesheet, frame_width=128,
@@ -131,6 +130,10 @@ def run_game():
         pygame.quit()
         sys.exit()
         return
+
+    print("Use WAD keys for movement")  
+    print("And press SPACE to see next dialog")
+    iiii = input("enter 55 to continue: ")
 
     DEFAULT_WIDTH = DEFAULT_HEIGHT = args.wsize
     # Initialize
