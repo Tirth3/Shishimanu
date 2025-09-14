@@ -45,4 +45,4 @@ pyinstaller --onefile --noconsole -n shishimanu shishimanu/main.py
   pip install pywin32
   ```
 * Warning about Scripts folder not in path :
-  * Follow the guide [here](https://github.com/Tirth3).
+  * Follow the guide [here](https://github.com/Tirth3/Shishimanu/blob/main/pathupdate.md).
