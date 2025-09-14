@@ -1,7 +1,8 @@
 # Follow this guide to to solve the following warning 
-    ```bash
+```bash
 WARNING: The script otto.exe is installed in 'C:\Users\ASUS\AppData\Roaming\Python\Python313\Scripts' which is not on PATH.
-Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location. ```
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location. 
+```
 
   **If you get this error the Running of the package will not work**
 
