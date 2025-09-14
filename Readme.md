@@ -9,7 +9,7 @@ It’s a lightweight, interactive package where you can run a pet on your deskto
 
 ## 🚀 Installation & Running
 ```bash
-pip install git+https://github.com/Tirth3/OTTO.git
+pip install git+https://github.com/Tirth3/shishimanu.git
 shishimanu
 ```
 
