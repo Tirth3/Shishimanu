@@ -133,6 +133,7 @@ def run_game():
 
     print("Use WAD keys for movement")  
     print("And press SPACE to see next dialog")
+    print("Press ESCAPE to exit")
     iiii = input("enter 55 to continue: ")
 
     DEFAULT_WIDTH = DEFAULT_HEIGHT = args.wsize
