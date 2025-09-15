@@ -68,3 +68,8 @@ If you find a bug or have a feature request:
   1. A clear title and description.
   2. Steps to reproduce (if it’s a bug).
   3. Expected behavior vs. actual behavior.
+ 
+## Usefull links
+1. [Pygame doc](https://www.pygame.org/docs/)
+2. [Python officieal tutorial](https://docs.python.org/3/tutorial/index.html)
+3. [GOG python tutorial](https://www.geeksforgeeks.org/python/python-programming-language-tutorial/)
