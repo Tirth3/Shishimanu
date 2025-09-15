@@ -35,7 +35,7 @@ You can package it into a single executable using PyInstaller:
 pyinstaller --onefile --noconsole -n shishimanu shishimanu/main.py
 ```
 
-## Contributing to this project
+## 💻 Contributing to this project
 Read the contributions page [here](contributions.md)
 
 ## ⚠️ Troubleshooting
