@@ -7,12 +7,62 @@ This project follows a **simple GitHub Flow**: everything happens through branch
 
 ## Workflow
 
-- **`main`** → The default branch. All contributions are merged here.
-- **`feature/*`** → For new features.
-- **`fix/*`** → For bug fixes.
+- **`main`** -> The default branch. All contributions are merged here.
+- **`feature/*`** -> For new features.
+- **`fix/*`** -> For bug fixes.
+- **`doc/*`** -> For documentation updates.
 
 👉 **Never commit directly to `main`.**
 👉 All work should be done in a branch and merged via pull request.
 
 ## Steps to Contribute
 1. **Clone the repository**
+```bash
+ git clone https://github.com/Tirth3/Shishimanu.git
+ cd Shishimanu
+ ```
+
+2.**Create a Branch**
+```bash
+git checkout -b feature/your-feature-name
+```
+The brach name should be given according to the work that you are going to do i.e use fix/fix-name for bug fixes and feature/feature-name for features that you are adding.
+Examples of branch names:
+- feature/dialog-system
+- fix/fullscreen-bug
+- docs/readme-update
+
+3.**Make Your Changes**
+Implement features, bug fixes, or documentation improvements.
+Follow the existing code style and structure.
+
+4.**Commit Your Changes**
+Write clear and descriptive commit messages.
+```bash
+git add .
+git commit -m "Add dialog system for virtual pet"
+```
+
+5.**Push Your Branch**
+```bash
+git push origin feature/your-feature-name
+```
+
+6.**Open a Pull Request(PR)**
+- Go to the original repository on GitHub.
+- Open a PR from your branch into the main branch of the project.
+- Provide a description of what you changed and why.
+
+# Code Style Guidelines
+- Use meaningful variable and function names.
+- Use modular programming practices.
+- Add comments or docstrings where necessary.
+- Keep commits small and focused.
+
+# Reporting Issues
+If you find a bug or have a feature request:
+- Check if it already exists in the [Issues](https://github.com/Tirth3/Shishimanu/issues)
+- If not, create a new issue with:
+  1. A clear title and description.
+  2. Steps to reproduce (if it’s a bug).
+  3. Expected behavior vs. actual behavior.
