@@ -40,9 +40,7 @@ This Code of Conduct applies to all spaces managed by the project, including:
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project maintainers at:
 
-`contact@your-domain.example`  
-
-(Replace with the project contact or maintainer email.)
+`tirthesh.mahajan3@gmail.com`  
 
 All reports will be reviewed and investigated promptly and fairly. Maintainers are obligated to keep reports confidential to the extent possible.
 
