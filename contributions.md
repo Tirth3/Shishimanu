@@ -15,4 +15,4 @@ This project follows a **simple GitHub Flow**: everything happens through branch
 👉 All work should be done in a branch and merged via pull request.
 
 ## Steps to Contribute
-
+1. **Clone the repository**
