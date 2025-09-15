@@ -1,6 +1,6 @@
 # Contributing to Shishimanu 🐾
 
-Thank you for considering contributing! 🎉
+Thank you for considering contributing! 🎉.
 This document outlines the contribution workflow and best practices.
 This project follows a **simple GitHub Flow**: everything happens through branches and pull requests.
 
