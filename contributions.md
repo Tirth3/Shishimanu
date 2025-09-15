@@ -2,6 +2,7 @@
 
 Thank you for considering contributing! 🎉.  
 This document outlines the contribution workflow and best practices.  
+Before reading this document first read the Code Of Conduct [here](codeofconduct.md).  
 This project follows a **simple GitHub Flow**: everything happens through branches and pull requests.
 
 
