@@ -1,7 +1,7 @@
 # Contributing to Shishimanu 🐾
 
-Thank you for considering contributing! 🎉.
-This document outlines the contribution workflow and best practices.
+Thank you for considering contributing! 🎉.  
+This document outlines the contribution workflow and best practices.  
 This project follows a **simple GitHub Flow**: everything happens through branches and pull requests.
 
 
@@ -12,8 +12,8 @@ This project follows a **simple GitHub Flow**: everything happens through branch
 - **`fix/*`** -> For bug fixes.
 - **`doc/*`** -> For documentation updates.
 
-👉 **Never commit directly to `main`.**
-👉 All work should be done in a branch and merged via pull request.
+👉 **Never commit directly to `main`.**  
+👉 All work should be done in a branch and merged via pull request.  
 
 ## Steps to Contribute
 1. **Clone the repository**
@@ -32,11 +32,11 @@ Examples of branch names:
 - fix/fullscreen-bug
 - docs/readme-update
 
-3.**Make Your Changes**
+3.**Make Your Changes**  
 Implement features, bug fixes, or documentation improvements.
 Follow the existing code style and structure.
 
-4.**Commit Your Changes**
+4.**Commit Your Changes**  
 Write clear and descriptive commit messages.
 ```bash
 git add .
@@ -48,7 +48,7 @@ git commit -m "Add dialog system for virtual pet"
 git push origin feature/your-feature-name
 ```
 
-6.**Open a Pull Request(PR)**
+6.**Open a Pull Request(PR)**  
 - Go to the original repository on GitHub.
 - Open a PR from your branch into the main branch of the project.
 - Provide a description of what you changed and why.
@@ -60,7 +60,7 @@ git push origin feature/your-feature-name
 - Keep commits small and focused.
 
 # Reporting Issues
-If you find a bug or have a feature request:
+If you find a bug or have a feature request:  
 - Check if it already exists in the [Issues](https://github.com/Tirth3/Shishimanu/issues)
 - If not, create a new issue with:
   1. A clear title and description.
