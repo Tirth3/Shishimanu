@@ -35,6 +35,9 @@ You can package it into a single executable using PyInstaller:
 pyinstaller --onefile --noconsole -n shishimanu shishimanu/main.py
 ```
 
+## Contributing to this project
+Read the contributions page [here](contributions.md)
+
 ## ⚠️ Troubleshooting
 * Transparent Background not working (Linux/macOS) :
   * Transparency (--t 2) only works on Windows via pywin32.
