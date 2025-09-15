@@ -24,3 +24,7 @@ def blitRotateCenter(surf, image, topleft, angle):
 
 def Distance(v1, v2):
     return math.sqrt(math.pow((v1[0] - v2[0]), 2) + math.pow((v1[1] - v2[1]), 2))
+
+
+def print_test():
+    print("Hello")
