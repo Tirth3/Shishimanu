@@ -72,4 +72,4 @@ If you find a bug or have a feature request:
 ## Usefull links
 1. [Pygame doc](https://www.pygame.org/docs/)
 2. [Python officieal tutorial](https://docs.python.org/3/tutorial/index.html)
-3. [GOG python tutorial](https://www.geeksforgeeks.org/python/python-programming-language-tutorial/)
+3. [GFG python tutorial](https://www.geeksforgeeks.org/python/python-programming-language-tutorial/)
