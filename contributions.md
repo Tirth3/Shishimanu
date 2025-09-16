@@ -38,6 +38,34 @@ Examples of branch names:
 Implement features, bug fixes, or documentation improvements.
 Follow the existing code style and structure.
 
+To run the package make a virtual environment  
+```bash 
+python -m venv env
+```
+
+For windows activate using following command
+```bash
+env\Scripts\activate.bat
+env\Scripts\activate.ps1
+```
+
+For Linux/masOS activate using following command 
+```bash 
+source my_project_env/bin/activate
+```
+
+Now install the package using the following command
+```bash 
+pip install -e .
+```
+
+Now you can run the program using
+```bash
+shishimanu
+```
+
+There is no need to `pip install -e .` everytime to run the program.  
+
 4.**Commit Your Changes**  
 Write clear and descriptive commit messages.
 ```bash
