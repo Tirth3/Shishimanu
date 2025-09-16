@@ -49,7 +49,7 @@ env\Scripts\activate.bat
 env\Scripts\activate.ps1
 ```
 
-For Linux/masOS activate using following command 
+For Linux/macOS activate using following command 
 ```bash 
 source env/bin/activate
 ```
