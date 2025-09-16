@@ -51,7 +51,7 @@ env\Scripts\activate.ps1
 
 For Linux/masOS activate using following command 
 ```bash 
-source my_project_env/bin/activate
+source env/bin/activate
 ```
 
 Now install the package using the following command
