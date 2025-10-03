@@ -31,8 +31,8 @@ def FirstTimeRun(screen, bgcolor, sSize, font):
         "Hear now the words carried on starlight,",
         "from the shining towers of Talajai, the empire of crystal spires and boundless science…",
 
-        "I, Tirthesh Mahajan, the Emperor of Talajai, master of the engines of the cosmos and keeper of the radiant crown,",
-        "send forth a gift most rare to you, Pratiksha Kumbhar, the noble Princess of Mahur.",
+        "I, the Emperor of Talajai, master of the engines of the cosmos and keeper of the radiant crown,",
+        "send forth a gift most rare to you, the noble Princess of Mahur.",
 
         "Not machines of steel, nor treasures of circuitry,",
         "but a living companion, woven from both light and ancient code,",
